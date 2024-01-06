@@ -17,12 +17,12 @@ class StripeWH_Handler:
         """
 
         return HttpResponse(
-            content=f'Unhandled Webhook received: {event["type"]}',
+            content=f'Unhandled webhook received: {event["type"]}',
             status=200)
 
-    def handle_payment_intent_successed(self, event):
+    def handle_payment_intent_succeeded(self, event):
         """
-        Handle the payment_intent.successed wbhook from Stripe
+        Handle the payment_intent.succeeded wbhook from Stripe
         """
         intent = event.data.object
         pid = intent.id
@@ -41,7 +41,7 @@ class StripeWH_Handler:
 
         for field, value in shipping_details.address.items():
             if value == "":
-                shipping_details.address[fields] = None
+                shipping_details.address[field] = None
 
         order_exists = False
         attempt = 1
