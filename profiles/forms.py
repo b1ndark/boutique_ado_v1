@@ -3,11 +3,10 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
-
     class Meta:
         model = UserProfile
         exclude = ('user',)
-    
+
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated
@@ -15,8 +14,6 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'default_full_name': 'Full Name',
-            'default_email': 'Email Address',
             'default_phone_number': 'Phone Number',
             'default_postcode': 'Postal Code',
             'default_town_or_city': 'Town or City',
