@@ -33,7 +33,7 @@ class StripeWH_Handler:
 
     def handle_event(self, event):
         """
-        Handle a generic/unkown/unexpected webhook event
+        Handle a generic/unknown/unexpected webhook event
         """
 
         return HttpResponse(
@@ -69,13 +69,13 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number__iexact=shipping_details.phone
-                profile.default_country__iexact=shipping_details.address.country
-                profile.default_postcode__iexact=shipping_details.address.postal_code
-                profile.default_town_or_city__iexact=shipping_details.address.city
-                profile.default_street_address1__iexact=shipping_details.address.line1
-                profile.default_street_address2__iexact=shipping_details.address.line2
-                profile.default_county__iexact=shipping_details.address.state            
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
                 profile.save()
 
         order_exists = False
