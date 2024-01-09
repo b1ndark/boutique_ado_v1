@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Disallow: /checkout/
+Sitemap: https://boutiqueado10-2311e87e8a55.herokuapp.com/sitemap.xml
